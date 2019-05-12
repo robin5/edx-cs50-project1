@@ -1,0 +1,68 @@
+body {
+	position: static;
+	background-color: #eee;
+}
+#critics-brand {
+
+	position: absolute;
+	left: 30px;
+	top: 30px;
+	font-size: 3em;
+	color: #fff;
+}
+
+.critics-corner-parisienne {
+	font-family: 'Parisienne', cursive;
+	font-size: 48px;
+}
+
+.critics-corner-great-vibes {
+	font-family: 'Great Vibes', cursive;
+	font-size: 48px;
+}
+
+.branding-font {
+	font-family: 'Tangerine', serif;
+	font-size: 48px;
+	text-shadow: 4px 4px 4px #aaa;
+}
+img {
+	display:inline-block;
+	position: absolute;
+	bottom: 400px;
+	left: 0;
+	width:100%;
+	z-index: -1;
+}
+
+main {
+	position: absolute;
+	top: 390px;
+	left: 0;
+	width: 100%;
+}
+
+.login-form {	
+	width: 400px;
+	margin: auto;
+}
+
+.search-form {	
+	width: 400px;
+	margin: auto;
+}
+
+.login-title {
+
+}
+
+.login-form-field {
+	display: block;
+	width: 100%;
+}
+
+nav {
+	position: absolute;
+	top: 289px;
+
+}

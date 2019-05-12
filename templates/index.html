@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+	Log In
+{% endblock %}
+
+{% block nav %}
+	<ul class="navbar-nav mr-auto">
+
+	  <li class="nav-item active">
+		{% if logged_in %}
+			<form action="{{url_for('search')}}" method="GET" class="form-inline my-2 my-lg-0">
+				<input type="submit" value="Search for books">
+			</form>
+		{% else %}
+			<div  class="nav-link">
+				<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
+			</div>
+		{% endif %}
+	  </li>
+<!--
+	  <li class="nav-item active">
+	    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	  </li>
+	  
+	  <li class="nav-item">
+	    <a class="nav-link" href="#">Link</a>
+	  </li>
+-->
+	</ul>
+{% endblock %}
+
+{% block body %}
+<!--
+	<div class="layout-login">
+		{% if logged_in %}
+			<form action="{{url_for('search')}}" method="GET">
+				<input type="submit" value="Search for books">
+			</form>
+		{% else %}
+			<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
+		{% endif %}
+	</div>
+-->
+{% endblock %}

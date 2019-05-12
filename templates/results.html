@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+	Results
+{% endblock %}
+
+{% block nav %}
+
+	<ul class="navbar-nav mr-auto">
+
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{url_for('search')}}">New Search</a>
+	  </li>
+
+	</ul>
+
+	<form class="form-inline nav-item">
+	    <a class="nav-link" href="{{url_for('logout')}}">Sign-Out</a>
+	</form>
+
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h2>Search results:</h2>
+		{% if search_results==False %}
+			<p>None found.</p>
+		{% else %}
+			<ul>
+				{% for result in search_results %}
+					<li><a href="{{ url_for('book', isbn=result.isbn) }}">{{result.title}}</a> | {{result.author}}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+{% endblock %}

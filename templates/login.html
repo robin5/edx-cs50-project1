@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+	<div  class="nav-link">
+		<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
+	</div>
+{% endblock %}
+
+{% block body %}
+	<div>
+		{% if form=='sign-in' %}
+		<section class="login-form">
+			<h2 class="login-title">Sign In</h2>
+			<div>
+				<form action="{{url_for('login', form='sign-in')}}" method='POST' ">
+					<input type="text" placeholder="User Name" class="form-control form-control-lg" required>
+					<input type="text" placeholder="Password" class="form-control form-control-lg" required>
+					<br>
+					<input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary" >
+				</form>
+			</div>
+		</section>
+		{% else %}
+		<section class="login-form">
+			<h2 class="login-title">Register</h2>
+			<div>
+				<form action="{{url_for('login', form='register')}}" method='POST' ">
+					<input type="text" placeholder="First Name" class="form-control form-control-lg" required>
+					<input type="text" placeholder="Last Name" class="form-control form-control-lg" required>
+					<input type="email" placeholder="Email" class="form-control form-control-lg" required>
+					<input type="text" placeholder="User Name" class="form-control form-control-lg" required>
+					<input type="password" placeholder="Password" class="form-control form-control-lg" required>
+					<br>
+					<input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary" >
+				</form>
+			</div>
+		</section>
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+	Book
+{% endblock %}
+
+{% block nav %}
+
+	<ul class="navbar-nav mr-auto">
+
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{url_for('search')}}">New Search</a>
+	  </li>
+
+	</ul>
+
+	<form class="form-inline nav-item">
+	    <a class="nav-link" href="{{url_for('logout')}}">Sign-Out</a>
+	</form>
+	
+{% endblock %}
+
+{% block body %}
+	<div>
+		<article>
+			<h2>{{book.title}}</h2>
+			<h3>Rating * * * * *<br>Goodreads results</h3>
+			<div>
+				<ul>
+					<li>Author: {{book.author}}</li>
+					<li>Publication Year: {{book.year}}</li>
+					<li>ISBN: {{book.isbn}}</li>
+				</ul>
+				<hr>
+				<h3>Submit A Review</h3>
+				<form>
+					<textarea style="width: 80%; height: 5em;"></textarea>
+					<input type="Submit" name="submit" value="Submit Review">
+					<select>
+						<option>1 Star</option>
+						<option>2 Star</option>
+						<option>3 Star</option>
+						<option>4 Star</option>
+						<option>5 Star</option>
+					</select>
+				</form>
+				<hr>
+				<h3>Reviews by others</h3>
+
+			</div>
+		</article>
+	</div>
+{% endblock %}
