@@ -24,12 +24,12 @@
 	<div>
 		<article>
 			<h2>{{book.title}}</h2>
-			<h3>Rating * * * * *<br>Goodreads results</h3>
 			<div>
 				<ul>
 					<li>Author: {{book.author}}</li>
 					<li>Publication Year: {{book.year}}</li>
 					<li>ISBN: {{book.isbn}}</li>
+					<li>Rating: {{goodread['work_ratings_count']}} responses with an average rating of {{goodread['average_rating']}} out of 5</li>
 				</ul>
 				<hr>
 				<h3>Submit A Review</h3>
@@ -37,6 +37,7 @@
 					<textarea style="width: 80%; height: 5em;"></textarea>
 					<input type="Submit" name="submit" value="Submit Review">
 					<select>
+						<option>Select a rating</option>
 						<option>1 Star</option>
 						<option>2 Star</option>
 						<option>3 Star</option>
