@@ -22,13 +22,15 @@
 
 {% block body %}
 	<div>
+
 		<h2>Search results:</h2>
-		{% if search_results==False %}
+		{% if search_results==[] %}
 			<p>None found.</p>
 		{% else %}
 			<ul>
 				{% for result in search_results %}
 					<li><a href="{{ url_for('book', isbn=result.isbn) }}">{{result.title}}</a> | {{result.author}}</li>
+					<!--li><a href="#">{{result.title}}</li-->
 				{% endfor %}
 			</ul>
 		{% endif %}

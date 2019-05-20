@@ -26,6 +26,20 @@ body {
 	font-size: 48px;
 	text-shadow: 4px 4px 4px #aaa;
 }
+
+.anchor-title:link, 
+.anchor-title:visited,
+.anchor-title:hover,
+.anchor-title:active {
+	color: #FFF;
+	text-decoration: none;
+}
+.anchor-title:hover, 
+.anchor-title:active {
+	color: #FFF;
+}
+
+
 img {
 	display:inline-block;
 	position: absolute;
