@@ -1,12 +1,99 @@
-body {
-	position: static;
-	background-color: #eee;
-}
-#critics-brand {
 
-	position: absolute;
-	left: 30px;
-	top: 30px;
+
+body {
+	height: 100%;
+	margin: 0;
+	background-color: rgba(100,95,81, 0.2);
+}
+
+/*header {
+	height: 400px;
+	padding: 0;
+}*/
+
+
+#welcome-user {
+	color: #FFF;
+	margin: 0 50px 0 30px;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media  only screen and (max-width: 575.98px) {
+
+	header {
+		height: 250px;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+	header {
+		height: 300px;
+	}
+
+	#welcome-user {
+		float: right;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+	header {
+		height: 350px;
+	}
+
+	#welcome-user {
+		float: right;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+	header {
+		height: 400px;
+	}
+
+	#welcome-user {
+		float: right;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+	header {
+		height: 400px;
+	}
+
+	#welcome-user {
+		float: right;
+	}
+}
+
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ben_white_138093_unsplash.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  	z-index: -1;
+}
+
+#critics-brand {
+	/* position: absolute; */
+	margin-left: 30px;
+	padding-top: 30px;
 	font-size: 3em;
 	color: #fff;
 }
@@ -39,21 +126,9 @@ body {
 	color: #FFF;
 }
 
-
-img {
-	display:inline-block;
-	position: absolute;
-	bottom: 400px;
-	left: 0;
-	width:100%;
-	z-index: -1;
-}
-
 main {
-	position: absolute;
-	top: 390px;
-	left: 0;
 	width: 100%;
+	padding: 20px;
 }
 
 .login-form {	
@@ -75,8 +150,33 @@ main {
 	width: 100%;
 }
 
-nav {
-	position: absolute;
-	top: 289px;
-
+#book-review {
+	display: block;
+	width: 100%;
+	height: 5rem;
 }
+
+#book-review-rating {
+	display: block;
+	margin-top: 20px;
+}
+
+#book-review-submit {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: orange;
+	color: #000;
+}
+
+.review-rating {
+	background-color: cyan;
+}
+
+.index-message {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: red;
+}
+
+

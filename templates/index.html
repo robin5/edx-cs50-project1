@@ -5,41 +5,40 @@
 {% endblock %}
 
 {% block nav %}
+
 	<ul class="navbar-nav mr-auto">
 
-	  <li class="nav-item active">
 		{% if logged_in %}
-			<form action="{{url_for('search')}}" method="GET" class="form-inline my-2 my-lg-0">
-				<input type="submit" value="Search for books">
-			</form>
+			<li class="nav-item active">
+	    		<a class="nav-link" href="{{url_for('search')}}">New Search</a>
+			</li>
 		{% else %}
-			<div  class="nav-link">
-				<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
-			</div>
+	  		<li class="nav-item active">
+				<a  class="nav-link" href="{{url_for('login', form='sign-in')}}">Sign In</a>
+			</li>
+			<li class="nav-item active">
+				<a  class="nav-link" href="{{url_for('login', form='register')}}">Register</a>
+			</li>
 		{% endif %}
-	  </li>
-<!--
-	  <li class="nav-item active">
-	    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	  </li>
-	  
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Link</a>
-	  </li>
--->
+
 	</ul>
+
+	{% if logged_in %}
+
+		<form class="form-inline nav-item">
+		    <a class="nav-link" href="{{url_for('logout')}}">Sign-Out</a>
+		</form>
+		
+	{% endif %}
+
 {% endblock %}
 
 {% block body %}
-<!--
-	<div class="layout-login">
-		{% if logged_in %}
-			<form action="{{url_for('search')}}" method="GET">
-				<input type="submit" value="Search for books">
-			</form>
-		{% else %}
-			<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
-		{% endif %}
-	</div>
--->
+
+	{% if message is defined %}
+		<div>
+			<p><span class="index-message">{{message['text']}}</span></p>
+		</div>
+	{% endif %}
+
 {% endblock %}

@@ -1,9 +1,16 @@
 {% extends "layout.html" %}
 
 {% block nav %}
-	<div  class="nav-link">
-		<a href="{{url_for('login', form='sign-in')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{url_for('login', form='register')}}">Register</a>
-	</div>
+
+	<ul class="navbar-nav mr-auto">
+  		<li class="nav-item active">
+			<a  class="nav-link" href="{{url_for('login', form='sign-in')}}">Sign In</a>
+		</li>
+		<li class="nav-item active">
+			<a  class="nav-link" href="{{url_for('login', form='register')}}">Register</a>
+		</li>
+	</ul>
+
 {% endblock %}
 
 {% block body %}
@@ -11,10 +18,15 @@
 		{% if form=='sign-in' %}
 		<section class="login-form">
 			<h2 class="login-title">Sign In</h2>
+			{% if message is defined %}
+				<div>
+					<p><span>{{message['text']}}</span></p>
+				</div>
+			{% endif %}
 			<div>
 				<form action="{{url_for('login', form='sign-in')}}" method='POST' ">
-					<input type="text" placeholder="User Name" class="form-control form-control-lg" required>
-					<input type="text" placeholder="Password" class="form-control form-control-lg" required>
+					<input type="text" name="user-name" placeholder="User Name" class="form-control form-control-lg" required>
+					<input type="password" name="password" placeholder="Password" class="form-control form-control-lg" required>
 					<br>
 					<input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary" >
 				</form>
@@ -23,13 +35,18 @@
 		{% else %}
 		<section class="login-form">
 			<h2 class="login-title">Register</h2>
+			{% if message is defined %}
+				<div>
+					<p><span>{{message['text']}}</span></p>
+				</div>
+			{% endif %}
 			<div>
 				<form action="{{url_for('login', form='register')}}" method='POST' ">
-					<input type="text" placeholder="First Name" class="form-control form-control-lg" required>
-					<input type="text" placeholder="Last Name" class="form-control form-control-lg" required>
-					<input type="email" placeholder="Email" class="form-control form-control-lg" required>
-					<input type="text" placeholder="User Name" class="form-control form-control-lg" required>
-					<input type="password" placeholder="Password" class="form-control form-control-lg" required>
+					<input type="text" name="first-name" placeholder="First Name" class="form-control form-control-lg" required>
+					<input type="text" name="last-name"placeholder="Last Name" class="form-control form-control-lg" required>
+					<input type="email" name="email"placeholder="Email" class="form-control form-control-lg" required>
+					<input type="text" name="user-name" placeholder="User Name" class="form-control form-control-lg" required>
+					<input type="password" name="password" placeholder="Password" class="form-control form-control-lg" required>
 					<br>
 					<input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary" >
 				</form>

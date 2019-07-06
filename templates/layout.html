@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Critic's Corner</title>
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Parisienne|Tangerine" rel="stylesheet">
     <link
@@ -9,15 +11,21 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />	
-	<link rel="stylesheet" href="/static/css/critics.css" />
+  <link rel="stylesheet" href="/static/css/critics.css" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/critics.css')}}" />
 
 </head>
 <body>
-  <div class="wrapper">
+  <!--div class="wrapper"-->
 
-  	<header class="container-fluid">
-  		<img src="/static/img/ben-white-138093-unsplash.jpg">
-  		<h1 id="critics-brand"><a class="anchor-title" href="{{url_for('index')}}">Critic's Corner</a></h1>
+  	<header class="container-fluid" style="padding: 0;">
+      <div class="hero-image">
+    		<!--img id="header-image" src="/static/img/ben-white-138093-unsplash.jpg"-->
+    		<h1 id="critics-brand"><a class="anchor-title" href="{{url_for('index')}}">Critic's Corner</a></h1>
+        {% if logged_in %}
+          <h3 id="welcome-user"> Hi {{user['first_name']}}! </h3>
+        {% endif %}
+      </div>
   	</header>
 
     <nav class="container-fluid navbar navbar-expand-sm navbar-dark bg-dark">
@@ -37,7 +45,7 @@
   		{% endblock %}
   	</main>
 
-  </div>
+  <!--/div-->
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

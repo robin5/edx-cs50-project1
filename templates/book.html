@@ -8,47 +8,85 @@
 
 	<ul class="navbar-nav mr-auto">
 
-	  <li class="nav-item">
+	  <li class="nav-item active">
 	    <a class="nav-link" href="{{url_for('search')}}">New Search</a>
 	  </li>
 
 	</ul>
 
-	<form class="form-inline nav-item">
+	<!--form class="form-inline nav-item">
 	    <a class="nav-link" href="{{url_for('logout')}}">Sign-Out</a>
-	</form>
+	</form-->
 	
+	<ul class="navbar-nav ml-auto">
+
+	  <li class="nav-item active">
+	    <a class="nav-link" href="{{url_for('logout')}}">Sign-Out</a>
+	  </li>
+
+	</ul>
+
 {% endblock %}
 
 {% block body %}
-	<div>
-		<article>
-			<h2>{{book.title}}</h2>
-			<div>
-				<ul>
-					<li>Author: {{book.author}}</li>
-					<li>Publication Year: {{book.year}}</li>
-					<li>ISBN: {{book.isbn}}</li>
-					<li>Rating: {{goodread['work_ratings_count']}} responses with an average rating of {{goodread['average_rating']}} out of 5</li>
-				</ul>
-				<hr>
-				<h3>Submit A Review</h3>
-				<form>
-					<textarea style="width: 80%; height: 5em;"></textarea>
-					<input type="Submit" name="submit" value="Submit Review">
-					<select>
-						<option>Select a rating</option>
-						<option>1 Star</option>
-						<option>2 Star</option>
-						<option>3 Star</option>
-						<option>4 Star</option>
-						<option>5 Star</option>
-					</select>
-				</form>
-				<hr>
-				<h3>Reviews by others</h3>
 
-			</div>
-		</article>
-	</div>
+	<section>
+		<h2>{{book.title}}</h2>
+		<ul>
+			<li>Author: {{book.author}}</li>
+			<li>Publication Year: {{book.year}}</li>
+			<li>ISBN: {{book.isbn}}</li>
+			<li>Rating: {{goodread['work_ratings_count']}} responses with an average rating of {{goodread['average_rating']}} out of 5</li>
+		</ul>
+	</section>
+	<hr>
+	<section>
+		<h3>Reviews by others</h3>
+
+			{% if reviews == [] %}
+
+				<p>Be the first to add a review of this book!</p>
+
+			{% else %}
+
+				<ul>
+					{% for review in reviews %}
+
+						<li>
+							<div class="review-article">
+								<span class="review-author">{{review['first_name']}} {{review['last_name']}} says </span><span class="badge review-rating">{{review['rating']}} stars</span>
+								<p class="review-text"><quote>{{review['text']}}</quote></p>
+							</div>
+						</li>
+
+					{% endfor %}
+				</ul>
+
+			{% endif %}
+	</section>
+
+	{% if not user_review_defined %}
+	
+	<hr>
+	
+	<section>
+
+		<h3>What's your opinion?</h3>
+		
+		<form action="{{url_for('book', isbn=book.isbn)}}" method="POST">
+			<textarea id="book-review" name="book-review"></textarea>
+			<select id="book-review-rating" name="book-review-rating">
+				<option value="0">Select a rating</option>
+				<option value="1">1 Star</option>
+				<option value="2">2 Star</option>
+				<option value="3">3 Star</option>
+				<option value="4">4 Star</option>
+				<option value="5">5 Star</option>
+			</select>
+			<input id="book-review-submit" type="Submit" name="submit" value="Submit Review">
+		</form>
+	</section>
+
+	{% endif %}
+
 {% endblock %}
